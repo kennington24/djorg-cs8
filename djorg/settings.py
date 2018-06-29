@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['.herokuapp.com'], ['127.0.0.0.1']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','.herokuapp.com']
 
 
 # Application definition
@@ -87,8 +87,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-db_from_env = dj_database_url.config()
 
 DATABASES['default'].update(db_from_env)
 
