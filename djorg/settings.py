@@ -26,12 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
-'#kwj4nk0-!k@$bp9(0^&o7q2ng#4q*w@lf4@v46rd1e(&apyz$'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com'], ['127.0.0.0.1']
 
 
 # Application definition
