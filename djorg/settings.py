@@ -29,12 +29,12 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','.herokuapp.com']
-
+ALLOWED_HOSTS = ['localhost','127.0.0.1','.herokuapp.com', 'guarded-headland-77742.herokuapp.com/']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'bookmarks',
     'notes',
     'django.contrib.admin',
@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,6 +58,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+    '127.0.0.1:8000'
+)
 
 ROOT_URLCONF = 'djorg.urls'
 
@@ -149,3 +157,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
+
+
